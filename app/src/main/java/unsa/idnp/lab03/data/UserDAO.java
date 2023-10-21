@@ -1,7 +1,6 @@
 package unsa.idnp.lab03.data;
 
 import unsa.idnp.lab03.data.model.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class UserDAO {
 
     // TEST
     private void addUserTest(){
-        addUser(new User("pol", "pol123"));
+        addUser(new User("user1", "user1"));
         addUser(new User("admin", "admin123"));
 
     }

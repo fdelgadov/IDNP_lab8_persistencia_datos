@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Lab03_registroBusquedaEstudiantes"
         tools:targetApi="34">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity

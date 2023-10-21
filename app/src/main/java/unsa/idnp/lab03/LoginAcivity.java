@@ -1,23 +1,19 @@
 package unsa.idnp.lab03;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import unsa.idnp.lab03.data.Result;
 import unsa.idnp.lab03.data.UserDAO;
 import unsa.idnp.lab03.data.model.User;
 
 public class LoginAcivity extends AppCompatActivity {
-
     private final static String TAG = "LoginActivity";
     private EditText usernameEditText, passwordEditText;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +28,8 @@ public class LoginAcivity extends AppCompatActivity {
 
                 usernameEditText = findViewById(R.id.username);
                 passwordEditText = findViewById(R.id.password);
-
                 Log.d(TAG, usernameEditText.getText().toString());
                 Log.d(TAG, passwordEditText.getText().toString());
-
 
                 Result<User> result =  userDAO.login(usernameEditText.getText().toString(), passwordEditText.getText().toString());
 
@@ -49,11 +43,7 @@ public class LoginAcivity extends AppCompatActivity {
                     Log.i(TAG, "No reconocido");
 
                 }
-
             }
         });
-
     }
-
-
 }
