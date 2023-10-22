@@ -35,12 +35,14 @@ public class DAOPostulante {
     }
 
     // Método para buscar un postulante por nombre
-    public Postulante buscarPostulantePorNombre(String nombre) {
+    public Postulante buscarPostulantePorDNI(String dni) {
+        listaPostulantes.add(new Postulante("890", "Apellido1", "Apellido2", "Nombre1", "01/01/2000", "Colegio1", "Carrera1"));
+
         for (Postulante postulante : listaPostulantes) {
-            if (postulante.getNombres().equals(nombre)) {
+            if (postulante.getDNI().equals(dni)) {
                 return postulante;
             }
         }
-        return null; // Retorna null si no se encuentra el postulante
+        return null;
     }
 }

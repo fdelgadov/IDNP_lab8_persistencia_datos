@@ -66,9 +66,10 @@ public class RegisterActivity extends AppCompatActivity {
         intent.putExtra("nuevoPostulante", postulante); // postulante es tu objeto Postulante
         setResult(RESULT_OK, intent);
         finish();
+    }
 
-
-
+    public void cancelar(View view){
+        finish();
     }
 }
 

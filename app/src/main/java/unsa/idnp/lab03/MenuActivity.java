@@ -58,6 +58,9 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void buscarPostulante(View view){
+        Intent internBuscar = new Intent(this, SearchActivity.class);
+        startActivity(internBuscar);
+
 
     }
 }
