@@ -68,19 +68,19 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/apellidoPaterno4"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextApellidoPaterno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="218dp"
-        android:layout_marginEnd="17dp"
-        android:ems="10"
-        android:textSize="15dp"
-        android:inputType="none"
-        android:clickable="false"
-        android:focusable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editTextApellidoPaterno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="218dp"
+            android:layout_marginEnd="17dp"
+            android:ems="10"
+            android:textSize="15dp"
+            android:inputType="none"
+            android:clickable="false"
+            android:focusable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Nombres"

@@ -36,17 +36,6 @@ public class RegisterActivity extends AppCompatActivity {
         Button buttonEnviar = findViewById(R.id.buttonEnviar);
 
 
-        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == RESULT_OK) {
-                        Intent data = result.getData();
-                        if (data != null && data.hasExtra("postulante")) {
-                            Postulante postulante = data.getParcelableExtra("postulante");
-                            // Hacer algo con el objeto Postulante
-                        }
-                    }
-                });
-
     }
 
     public void completeRegister(View view){
