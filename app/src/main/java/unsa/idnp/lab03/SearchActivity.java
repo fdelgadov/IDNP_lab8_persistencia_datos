@@ -30,25 +30,17 @@ public class SearchActivity extends AppCompatActivity {
         editTextColegio = findViewById(R.id.editTextColegio);
         editTextCarrera = findViewById(R.id.editTextCerrera);
 
-
-        Button buttonBuscar = findViewById(R.id.buttonBuscar);
         editTextDniBuscar = findViewById(R.id.dniBuscar);
-
-
     }
 
     public void buscarPostulante(View view){
         limpiarDatos();
         String dni = editTextDniBuscar.getText().toString();
-        Postulante postulanteEncontrado = daoPostulante.buscarPostulantePorDNI(dni);
+        Postulante postulanteEncontrado = daoPostulante.buscarPostulantePorDNI(getApplicationContext(), dni);
 
         if(postulanteEncontrado == null){
             Log.d(TAG, "Postulanete No encontrado");
             Toast.makeText(getApplicationContext(), "Postulante No Encontrado", Toast.LENGTH_SHORT).show();
-
-
-
-
         }else{
             Log.d(TAG, "Postulanete encontrado");
             Log.d(TAG, postulanteEncontrado.toString());

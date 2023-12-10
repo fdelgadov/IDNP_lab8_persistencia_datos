@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,11 +32,6 @@ public class RegisterActivity extends AppCompatActivity {
         editTextFechaNacimiento = findViewById(R.id.editTextFechadeNacimiento);
         editTextColegio = findViewById(R.id.editTextColegio);
         editTextCarrera = findViewById(R.id.editTextCerrera);
-
-
-        Button buttonEnviar = findViewById(R.id.buttonEnviar);
-
-
     }
 
     public void completeRegister(View view){
@@ -48,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         String carrera = editTextCarrera.getText().toString();
 
         // Crea un objeto Postulante con los datos
-        Postulante postulante = new Postulante(dni, apellidoPaterno, apellidoMaterno, nombres, fechaNacimiento, colegio, carrera);
+        Parcelable postulante = new Postulante(dni, apellidoPaterno, apellidoMaterno, nombres, fechaNacimiento, colegio, carrera);
 
         // Después de completar el registro del postulante
         Intent intent = new Intent();

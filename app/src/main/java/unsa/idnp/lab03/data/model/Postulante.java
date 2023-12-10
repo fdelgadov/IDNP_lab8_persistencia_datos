@@ -2,10 +2,13 @@ package unsa.idnp.lab03.data.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-public class Postulante implements Parcelable {
+import java.io.Serializable;
+
+public class Postulante implements Parcelable, Serializable {
 
     private String DNI;
     private String apellidoPaterno;
@@ -140,6 +143,19 @@ public class Postulante implements Parcelable {
             return new Postulante[size];
         }
     };
+
+    public String toStringAttributes() {
+        String res = DNI + "\n" +
+                apellidoPaterno + "\n" +
+                apellidoMaterno + "\n" +
+                nombres + "\n" +
+                fechaNacimiento + "\n" +
+                colegioProcedencia + "\n" +
+                carrera;
+        Log.d("Postulante", res.toString());
+
+        return res.toString();
+    }
 }
 
 

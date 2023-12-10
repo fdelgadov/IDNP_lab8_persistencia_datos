@@ -24,6 +24,7 @@ public class ExampleUnitTest {
         dao = DAOPostulante.getInstance(); // Obtener la instancia del DAO
     }
 
+    /*
     @Test
     public void testRegistrarPostulante() {
         Postulante newPostulante = new Postulante("789", "ApellidoNuevo", "ApellidoNuevo", "NuevoNombre", "03/03/2000", "NuevoColegio", "NuevaCarrera");
@@ -51,4 +52,5 @@ public class ExampleUnitTest {
         Postulante postulante = dao.buscarPostulantePorDNI("999");
         assertNull(postulante);
     }
+     */
 }

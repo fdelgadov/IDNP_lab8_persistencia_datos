@@ -39,7 +39,7 @@ public class MenuActivity extends AppCompatActivity {
                             Postulante nuevoPostulante = data.getParcelableExtra("nuevoPostulante");
                             Log.d(TAG, "Nuevo postulante");
                             Log.d(TAG, nuevoPostulante.toString());
-                            daoPostulante.registrarPostulante(nuevoPostulante);
+                            daoPostulante.registrarPostulante(getApplicationContext(), nuevoPostulante);
                             Toast.makeText(getApplicationContext(), "Postulante Registrado", Toast.LENGTH_SHORT).show();
 
                         }

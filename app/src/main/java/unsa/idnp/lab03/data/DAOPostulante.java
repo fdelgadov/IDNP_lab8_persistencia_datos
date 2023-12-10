@@ -1,19 +1,16 @@
 package unsa.idnp.lab03.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Context;
+
+import java.io.*;
 
 import unsa.idnp.lab03.data.model.Postulante;
 
 public class DAOPostulante {
     private static DAOPostulante instance;
-    private List<Postulante> listaPostulantes = new ArrayList<>();
 
     // Constructor privado para evitar instanciación directa
     private DAOPostulante() {
-        // Agrega algunos postulantes por defecto al DAO
-        listaPostulantes.add(new Postulante("123", "Apellido1", "Apellido2", "Nombre1", "01/01/2000", "Colegio1", "Carrera1"));
-        listaPostulantes.add(new Postulante("456","Apellido3", "Apellido4", "Nombre2", "02/02/2000", "Colegio2", "Carrera2"));
     }
 
     // Método para obtener la instancia única del DAO (Singleton)
@@ -25,24 +22,30 @@ public class DAOPostulante {
     }
 
     // Método para registrar un nuevo postulante
-    public void registrarPostulante(Postulante postulante) {
-        listaPostulantes.add(postulante);
-    }
-
-    // Método para obtener todos los postulantes registrados
-    public List<Postulante> listarPostulantes() {
-        return listaPostulantes;
+    public void registrarPostulante(Context context, Postulante postulante) {
+        String filename = postulante.getDNI();
+        try {
+            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(postulante);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     // Método para buscar un postulante por nombre
-    public Postulante buscarPostulantePorDNI(String dni) {
-        listaPostulantes.add(new Postulante("890", "Apellido1", "Apellido2", "Nombre1", "01/01/2000", "Colegio1", "Carrera1"));
-
-        for (Postulante postulante : listaPostulantes) {
-            if (postulante.getDNI().equals(dni)) {
-                return postulante;
-            }
+    public Postulante buscarPostulantePorDNI(Context context, String dni) {
+        Postulante res = null;
+        try{
+            FileInputStream fis = context.openFileInput(dni);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            res = (Postulante) ois.readObject();
         }
-        return null;
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return res;
     }
 }
