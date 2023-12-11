@@ -3,11 +3,13 @@ package unsa.idnp.lab03.data;
 import android.content.Context;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import unsa.idnp.lab03.data.model.Postulante;
 
 public class DAOPostulante {
     private static DAOPostulante instance;
+    private static ArrayList<Postulante> lista;
 
     // Constructor privado para evitar instanciación directa
     private DAOPostulante() {
@@ -32,6 +34,8 @@ public class DAOPostulante {
         catch (Exception e){
             e.printStackTrace();
         }
+
+        lista.add(postulante);
     }
 
     // Método para buscar un postulante por nombre
@@ -47,5 +51,22 @@ public class DAOPostulante {
         }
 
         return res;
+    }
+
+    public ArrayList<Postulante> getList(Context context){
+        lista = new ArrayList<>();
+        File dir = context.getFilesDir();
+        File[] files = dir.listFiles();
+
+        for(File f: files){
+            try{
+                FileInputStream fis = new FileInputStream(f);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                lista.add((Postulante) ois.readObject());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return lista;
     }
 }

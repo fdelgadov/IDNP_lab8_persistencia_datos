@@ -51,7 +51,6 @@ public class MenuActivity extends AppCompatActivity {
 
 
     public void registrarPostulante(View view){
-
         Intent intent = new Intent(this, RegisterActivity.class);
         registroActivityResultLauncher.launch(intent);
 
@@ -60,7 +59,9 @@ public class MenuActivity extends AppCompatActivity {
     public void buscarPostulante(View view){
         Intent internBuscar = new Intent(this, SearchActivity.class);
         startActivity(internBuscar);
+    }
 
-
+    public void listarPostulantes(View view){
+        startActivity(new Intent(this, ListActivity.class));
     }
 }
